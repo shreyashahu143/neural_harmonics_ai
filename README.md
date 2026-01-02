@@ -1,5 +1,4 @@
 # Neural Harmonics AI
-
 ## Setup Instructions
 
 This project uses the external `figaro` library. Follow these steps to set it up:
