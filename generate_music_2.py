@@ -14,8 +14,8 @@ src_path = os.path.abspath(os.path.join(os.getcwd(), 'Rule_Engine', 'figaro', 's
 if src_path not in sys.path:
     sys.path.insert(0, src_path)
 
-from models.seq2seq import Seq2SeqModule
-from vocab import RemiVocab, DescriptionVocab
+from Rule_ENgine.figaro.src.models.seq2seq import Seq2SeqModule
+from Rule_ENgine.figaro.src.vocab import RemiVocab, DescriptionVocab
 
 CHECKPOINT_PATH = os.path.join("Rule_ENgine", "figaro", "checkpoints", "figaro-expert.ckpt")
 

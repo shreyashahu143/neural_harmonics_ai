@@ -3,6 +3,9 @@ import sys
 import torch
 import numpy as np
 from test import process_emotion_sequence
+import miditoolkit
+from miditoolkit.midi.containers import Note, Instrument, Marker, TimeSignature
+import re
 
 # ----------------------------------------------------------
 # 1. SETUP PATHS - Give access to internal Figaro code
@@ -106,71 +109,41 @@ class FigaroGenerator:
         return model
 
     def _prepare_batch(self, description):
-        # --- 1. PREPARE DESCRIPTION (ENCODER) ---
+        # 1. Prepare Description
         desc_ids = []
-
-        # Safe Encode Description
         for token in description:
             try:
-                if hasattr(self.desc_vocab.vocab, '__getitem__'):
-                    desc_ids.append(self.desc_vocab.vocab[token])
-                elif hasattr(self.desc_vocab.vocab, 'lookup_indices'):
+                if hasattr(self.desc_vocab.vocab, 'lookup_indices'):
                     desc_ids.append(self.desc_vocab.vocab.lookup_indices([token])[0])
                 else:
-                    desc_ids.append(self.desc_vocab.vocab([token])[0])
+                    desc_ids.append(self.desc_vocab.vocab[token])
             except:
                 desc_ids.append(0)
-
-        # Add BOS to description if needed (some models expect it, some don't, safety first)
-        # (Keeping your previous logic of just tokens is fine, let's stick to what we had)
-        
-        # Create Description Tensor
         desc_tensor = torch.tensor(desc_ids, dtype=torch.long)
 
-        # Calculate Description Bar IDs (For the Encoder)
-        desc_bar_ids = torch.zeros(len(desc_ids), dtype=torch.long)
-        current_bar = 0
-        for i, token_id in enumerate(desc_ids):
-            token_str = ""
-            try:
-                if isinstance(token_id, torch.Tensor): token_id = token_id.item()
-                if hasattr(self.desc_vocab.vocab, 'lookup_token'):
-                    token_str = self.desc_vocab.vocab.lookup_token(token_id)
-                elif hasattr(self.desc_vocab.vocab, 'itos'):
-                    token_str = self.desc_vocab.vocab.itos[token_id]
-            except: pass
-            if "Bar_" in token_str:
-                try: current_bar = int(token_str.split('_')[1])
-                except: pass
-            desc_bar_ids[i] = current_bar
+        # 2. PERFECT PRIME (Full Note Definition)
+        # Sequence: <bos> | Bar_2 | Position_0 | Pitch_60 | Velocity_20 | Duration_4
+        # IDs from your dump: 
+        # <bos>=2, Bar_2=114, Position_0=1054, Pitch_60=883, Velocity_20=1334, Duration_4=645
 
-        # --- 2. PREPARE INPUT (DECODER START) ---
-        # The decoder starts with just ONE token: The BOS (Start) token.
-        try:
-            bos_id = self.desc_vocab.vocab[BOS_TOKEN] if hasattr(self.desc_vocab.vocab, '__getitem__') else 1
-        except:
-            bos_id = 1
+        prime_sequence = [2, 114, 1054, 883, 1334, 645]
 
-        # Input ID: Shape [1, 1]
-        input_ids = torch.tensor([[bos_id]], dtype=torch.long).to(self.device)
+        input_ids = torch.tensor([prime_sequence], dtype=torch.long).to(self.device)
 
-        # Bar ID for Input: Shape [1, 1] (It starts at Bar 0)
-        input_bar_ids = torch.zeros((1, 1), dtype=torch.long).to(self.device)
+        # Bar IDs: [0, 2, 2, 2, 2, 2]
+        input_bar_ids = torch.tensor([[0, 2, 2, 2, 2, 2]], dtype=torch.long).to(self.device)
 
-        # Position ID for Input: Shape [1, 1] (It starts at Position 0)
-        input_position_ids = torch.zeros((1, 1), dtype=torch.long).to(self.device)
+        # Position IDs: [0, 0, 0, 0, 0, 0]
+        input_position_ids = torch.zeros((1, 6), dtype=torch.long).to(self.device)
 
-        # --- 3. RETURN BATCH ---
+        print(f"🚀 PERFECT PRIME: Forcing complete note with {len(prime_sequence)} tokens...")
+
         return {
-            # Encoder Inputs (Long)
             'description': desc_tensor.unsqueeze(0).to(self.device),
-            'desc_bar_ids': desc_bar_ids.unsqueeze(0).to(self.device),
-            
-            # Decoder Inputs (Short - just the start token)
+            'desc_bar_ids': torch.zeros_like(desc_tensor).unsqueeze(0).to(self.device),
             'input_ids': input_ids,
-            'bar_ids': input_bar_ids,          # Matches input_ids shape
-            'position_ids': input_position_ids,# Matches input_ids shape
-            
+            'bar_ids': input_bar_ids,
+            'position_ids': input_position_ids,
             'latents': None
         }
 
@@ -182,11 +155,94 @@ class FigaroGenerator:
             kwargs.pop('temperature', None)
             return self.model.sample(batch, verbose=0, **kwargs)
 
-    def save_midi(self, result, output_path):
-        seq = result['sequences'][0].cpu().numpy()
-        events = self.remi_vocab.decode(seq)
-        pm = remi2midi(events)
-        pm.write(output_path)
+
+    def save_midi(tokens, output_path):
+        import miditoolkit
+        from miditoolkit.midi.containers import Note, Instrument
+        
+        print(f"\n🔍 DEBUG START: Processing {len(tokens)} tokens for {output_path}")
+
+        # Configuration based on your vocab_dump.txt
+        TOKEN_MAP = {
+            'PITCH':    ['Pitch', 'Note_On'],
+            'VELOCITY': ['Velocity', 'Vel'],
+            'DURATION': ['Duration', 'Dur'],
+            'BAR':      ['Bar'],
+            'POSITION': ['Position']
+        }
+
+        midi_obj = miditoolkit.midi.parser.MidiFile()
+        track = Instrument(program=0, is_drum=False, name="Debug Track")
+        
+        state = {'bar': 0, 'position': 0, 'pitch': 0, 'velocity': 64, 'duration': 4}
+        TICKS_PER_BAR, TICKS_PER_POS = 1920, 15
+        notes_to_add = []
+
+        for i, token in enumerate(tokens):
+            # 1. Skip meta tokens
+            if "<" in token:
+                print(f"  [{i}] Skipping meta-token: {token}")
+                continue
+                
+            # 2. Split and Validate
+            parts = token.split('_')
+            if len(parts) < 2:
+                print(f"  [{i}] Skipping non-data token: {token}")
+                continue
+                
+            prefix, value_str = parts[0], parts[-1]
+            try:
+                value = int(value_str)
+            except:
+                print(f"  [{i}] Error: Could not convert '{value_str}' to number in {token}")
+                continue
+
+            # 3. Match Categories
+            matched = False
+            
+            if any(alias in prefix for alias in TOKEN_MAP['PITCH']):
+                state['pitch'] = value
+                start = (state['bar'] * TICKS_PER_BAR) + (state['position'] * TICKS_PER_POS)
+                end = start + (state['duration'] * TICKS_PER_POS)
+                
+                new_note = Note(velocity=state['velocity'], pitch=state['pitch'], start=int(start), end=int(end))
+                notes_to_add.append(new_note)
+                print(f"  [{i}] ✨ ADDED NOTE: Pitch {value} at Bar {state['bar']}, Pos {state['position']}")
+                matched = True
+
+            elif any(alias in prefix for alias in TOKEN_MAP['BAR']):
+                state['bar'] = value
+                print(f"  [{i}] 🆕 BAR SET TO: {value}")
+                matched = True
+
+            elif any(alias in prefix for alias in TOKEN_MAP['POSITION']):
+                state['position'] = value
+                print(f"  [{i}] 📍 POSITION SET TO: {value}")
+                matched = True
+
+            elif any(alias in prefix for alias in TOKEN_MAP['VELOCITY']):
+                state['velocity'] = value
+                print(f"  [{i}] 🔊 VELOCITY SET TO: {value}")
+                matched = True
+
+            elif any(alias in prefix for alias in TOKEN_MAP['DURATION']):
+                state['duration'] = value
+                print(f"  [{i}] ⏳ DURATION SET TO: {value}")
+                matched = True
+
+            if not matched:
+                print(f"  [{i}] ⚠️ IGNORED: Token '{token}' did not match any category.")
+
+        # 4. Final Save Report
+        print(f"📊 DEBUG SUMMARY: Found {len(notes_to_add)} valid notes to write.")
+        
+        if len(notes_to_add) > 0:
+            track.notes = notes_to_add
+            midi_obj.instruments.append(track)
+            midi_obj.dump(output_path)
+            print(f"✅ SUCCESS: File saved with content.")
+        else:
+            print(f"❌ FAILURE: No notes were added. The file will be empty (41 bytes).")
 
 # --- 2. HELPER: BINNING LOGIC ---
 # We mimic Figaro's internal binning to convert raw values (0-127) to indices (0-31)
@@ -273,35 +329,84 @@ def generate_song_from_rules(timeline_data):
     )
     print("🎹 Model Loaded! Starting Composition...")
 
+    # --- DEBUG: INSPECT VOCABULARY ---
+    print("\n🔍 INSPECTING MUSIC VOCABULARY (REMI)...")
+    try:
+        vocab_obj = model.remi_vocab.vocab
+        if hasattr(vocab_obj, 'itos'):
+            print(f"First 10 tokens: {vocab_obj.itos[:10]}")
+            bar_tokens = [t for t in vocab_obj.itos if "Bar" in str(t)][:5]
+            print(f"Found 'Bar' tokens: {bar_tokens}")
+        elif hasattr(vocab_obj, 'lookup_token'):
+            sample_tokens = [vocab_obj.lookup_token(i) for i in range(10)]
+            print(f"First 10 tokens: {sample_tokens}")
+        elif hasattr(vocab_obj, 'stoi'):
+            print("Using STOI dictionary...")
+            sample_items = list(vocab_obj.stoi.items())[:10]
+            print(f"First 10 items: {sample_items}")
+    except Exception as e:
+        print(f"Could not inspect vocab: {e}")
+    print("--------------------------------------\n")
+
+    def save_midi(token_list, output_path):
+        pm = remi2midi(token_list)
+        pm.write(output_path)
+
     for i, event in enumerate(timeline_data):
-        # Calculate how many bars for this duration (Assuming 2s per bar approx)
         duration_sec = event['end_time_sec'] - event['start_time_sec']
         num_bars = max(1, int(duration_sec / 2.0))
-        
-        # Create the Description for *one bar*
-        # (We use bar_num=1 for all, treating each segment as a fresh start for now)
         bar_tokens = translate_rules_to_figaro_tokens(event, bar_num=1)
-        
-        # Repeat this bar description for the duration
-        # Figaro wants a List of Lists (one list per bar)
         full_description = [bar_tokens for _ in range(num_bars)]
-        
+
         print(f"\n--- Segment {i+1}: Generating {num_bars} bars ---")
         print(f"Tokens: {bar_tokens}")
 
-        # GENERATE
-        # Note: We pass the sequence of bar descriptions
-        result = model.sample(
-            description=full_description, 
-            temperature=1.0
-        )
-        
-        # SAVE
-        # Create a clean filename
-        safe_chord = event['music_instruction']['chord_sequence'].replace(':', '')
-        filename = f"output_seg_{i}_{safe_chord}.mid"
-        model.save_midi(result, filename)
-        print(f"✅ Saved: {filename}")
+        print(f"🎹 Generating Segment {i+1}...")
+
+        # --- NEW GENERATION/BLOCK FOR DICT SAFE-UNPACK ---
+        try:
+
+            # 1. Generate music
+            raw_output = model.sample(
+                description=full_description,
+                temperature=1.0
+            )
+            
+            # 2. UNPACK: Check if it's a dictionary or a list
+            if isinstance(raw_output, dict):
+                # The tokens are usually in 'samples' or 'sequences'
+                generated_tokens = raw_output.get('samples', raw_output.get('sequences', []))
+                # If it's a tensor, convert to list
+                if hasattr(generated_tokens, 'tolist'):
+                    generated_tokens = generated_tokens.tolist()
+                # If it's a list of lists (batch), take the first one
+                if len(generated_tokens) > 0 and isinstance(generated_tokens[0], list):
+                    generated_tokens = generated_tokens[0]
+            else:
+                generated_tokens = raw_output
+
+            # 3. ENSURE STRINGS: If they are still IDs, decode them
+            # (This handles cases where the model returns numbers instead of words)
+            if len(generated_tokens) > 0 and isinstance(generated_tokens[0], int):
+                generated_tokens = model.remi_vocab.decode(generated_tokens)
+
+            #print(f"📡 AI Output (first 5): {generated_tokens[:5]}")
+            print(f"📡 FULL AI OUTPUT ({len(generated_tokens)} tokens):")
+            print(generated_tokens)
+            # 4. INJECT: Add Bar_1 manually for the MIDI writer
+            if generated_tokens and "Bar_" not in str(generated_tokens[0]):
+                print("💉 Injecting 'Bar_1' to start the MIDI track...")
+                generated_tokens.insert(0, "Bar_1")
+
+            # 5. SAVE
+            output_filename = f"output_seg_{i}.mid"
+            save_midi(generated_tokens, output_filename)
+            print(f"✅ Success! Saved to {output_filename}")
+
+        except Exception as e:
+            print(f"❌ Failed: {e}")
+            import traceback
+            traceback.print_exc() # This will show us exactly where it crashes if it fails again
 
 if __name__ == "__main__":
     # 1. Simulate NLP Input
@@ -313,9 +418,40 @@ if __name__ == "__main__":
     
     # 2. Get Rules
     timeline = process_emotion_sequence(nlp_input, config)
-    
+
     # 3. Generate
     if os.path.exists(CHECKPOINT_PATH):
+        # --- TOOL: DUMP VOCABULARY TO FILE ---
+        print("\n📝 Dumping full vocabulary to 'vocab_dump.txt'...")
+        try:
+            model = FigaroGenerator(
+                checkpoint_path=CHECKPOINT_PATH,
+                device='cuda' if torch.cuda.is_available() else 'cpu'
+            )
+            vocab_obj = model.remi_vocab.vocab
+
+            all_tokens = []
+            if hasattr(vocab_obj, 'itos'):
+                all_tokens = vocab_obj.itos
+            elif hasattr(vocab_obj, 'get_itos'):
+                all_tokens = vocab_obj.get_itos()
+            elif hasattr(vocab_obj, 'lookup_token'):
+                try:
+                    for i in range(5000): # Safety limit
+                        all_tokens.append(vocab_obj.lookup_token(i))
+                except:
+                    pass
+
+            with open("vocab_dump.txt", "w", encoding="utf-8") as f:
+                for idx, token in enumerate(all_tokens):
+                    f.write(f"{idx}: {token}\n")
+
+            print(f"✅ Success! Saved {len(all_tokens)} tokens to 'vocab_dump.txt'")
+            print("👉 Open that file to find the EXACT name for 'Bar_1' (e.g. 'Bar_1', 'Bar_0', 'Subject_Bar_1')")
+
+        except Exception as e:
+            print(f"❌ Could not dump vocab: {e}")
+        print("--------------------------------------\n")
         generate_song_from_rules(timeline)
     else:
         print(f"❌ Checkpoint missing at {CHECKPOINT_PATH}")
