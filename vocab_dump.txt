@@ -1,0 +1,1354 @@
+0: <pad>
+1: <unk>
+2: <bos>
+3: <eos>
+4: <mask>
+5: Bar_100
+6: Bar_101
+7: Bar_102
+8: Bar_103
+9: Bar_104
+10: Bar_105
+11: Bar_106
+12: Bar_107
+13: Bar_108
+14: Bar_109
+15: Bar_11
+16: Bar_110
+17: Bar_111
+18: Bar_112
+19: Bar_113
+20: Bar_114
+21: Bar_115
+22: Bar_116
+23: Bar_117
+24: Bar_118
+25: Bar_119
+26: Bar_12
+27: Bar_120
+28: Bar_121
+29: Bar_122
+30: Bar_123
+31: Bar_124
+32: Bar_125
+33: Bar_126
+34: Bar_127
+35: Bar_128
+36: Bar_129
+37: Bar_13
+38: Bar_130
+39: Bar_131
+40: Bar_132
+41: Bar_133
+42: Bar_134
+43: Bar_135
+44: Bar_136
+45: Bar_137
+46: Bar_138
+47: Bar_139
+48: Bar_14
+49: Bar_140
+50: Bar_141
+51: Bar_142
+52: Bar_143
+53: Bar_144
+54: Bar_145
+55: Bar_146
+56: Bar_147
+57: Bar_148
+58: Bar_149
+59: Bar_15
+60: Bar_150
+61: Bar_151
+62: Bar_152
+63: Bar_153
+64: Bar_154
+65: Bar_155
+66: Bar_156
+67: Bar_157
+68: Bar_158
+69: Bar_159
+70: Bar_16
+71: Bar_160
+72: Bar_161
+73: Bar_162
+74: Bar_163
+75: Bar_164
+76: Bar_165
+77: Bar_166
+78: Bar_167
+79: Bar_168
+80: Bar_169
+81: Bar_17
+82: Bar_170
+83: Bar_171
+84: Bar_172
+85: Bar_173
+86: Bar_174
+87: Bar_175
+88: Bar_176
+89: Bar_177
+90: Bar_178
+91: Bar_179
+92: Bar_18
+93: Bar_180
+94: Bar_181
+95: Bar_182
+96: Bar_183
+97: Bar_184
+98: Bar_185
+99: Bar_186
+100: Bar_187
+101: Bar_188
+102: Bar_189
+103: Bar_19
+104: Bar_190
+105: Bar_191
+106: Bar_192
+107: Bar_193
+108: Bar_194
+109: Bar_195
+110: Bar_196
+111: Bar_197
+112: Bar_198
+113: Bar_199
+114: Bar_2
+115: Bar_20
+116: Bar_200
+117: Bar_201
+118: Bar_202
+119: Bar_203
+120: Bar_204
+121: Bar_205
+122: Bar_206
+123: Bar_207
+124: Bar_208
+125: Bar_209
+126: Bar_21
+127: Bar_210
+128: Bar_211
+129: Bar_212
+130: Bar_213
+131: Bar_214
+132: Bar_215
+133: Bar_216
+134: Bar_217
+135: Bar_218
+136: Bar_219
+137: Bar_22
+138: Bar_220
+139: Bar_221
+140: Bar_222
+141: Bar_223
+142: Bar_224
+143: Bar_225
+144: Bar_226
+145: Bar_227
+146: Bar_228
+147: Bar_229
+148: Bar_23
+149: Bar_230
+150: Bar_231
+151: Bar_232
+152: Bar_233
+153: Bar_234
+154: Bar_235
+155: Bar_236
+156: Bar_237
+157: Bar_238
+158: Bar_239
+159: Bar_24
+160: Bar_240
+161: Bar_241
+162: Bar_242
+163: Bar_243
+164: Bar_244
+165: Bar_245
+166: Bar_246
+167: Bar_247
+168: Bar_248
+169: Bar_249
+170: Bar_25
+171: Bar_250
+172: Bar_251
+173: Bar_252
+174: Bar_253
+175: Bar_254
+176: Bar_255
+177: Bar_256
+178: Bar_257
+179: Bar_258
+180: Bar_259
+181: Bar_26
+182: Bar_260
+183: Bar_261
+184: Bar_262
+185: Bar_263
+186: Bar_264
+187: Bar_265
+188: Bar_266
+189: Bar_267
+190: Bar_268
+191: Bar_269
+192: Bar_27
+193: Bar_270
+194: Bar_271
+195: Bar_272
+196: Bar_273
+197: Bar_274
+198: Bar_275
+199: Bar_276
+200: Bar_277
+201: Bar_278
+202: Bar_279
+203: Bar_28
+204: Bar_280
+205: Bar_281
+206: Bar_282
+207: Bar_283
+208: Bar_284
+209: Bar_285
+210: Bar_286
+211: Bar_287
+212: Bar_288
+213: Bar_289
+214: Bar_29
+215: Bar_290
+216: Bar_291
+217: Bar_292
+218: Bar_293
+219: Bar_294
+220: Bar_295
+221: Bar_296
+222: Bar_297
+223: Bar_298
+224: Bar_299
+225: Bar_3
+226: Bar_30
+227: Bar_300
+228: Bar_301
+229: Bar_302
+230: Bar_303
+231: Bar_304
+232: Bar_305
+233: Bar_306
+234: Bar_307
+235: Bar_308
+236: Bar_309
+237: Bar_31
+238: Bar_310
+239: Bar_311
+240: Bar_312
+241: Bar_313
+242: Bar_314
+243: Bar_315
+244: Bar_316
+245: Bar_317
+246: Bar_318
+247: Bar_319
+248: Bar_32
+249: Bar_320
+250: Bar_321
+251: Bar_322
+252: Bar_323
+253: Bar_324
+254: Bar_325
+255: Bar_326
+256: Bar_327
+257: Bar_328
+258: Bar_329
+259: Bar_33
+260: Bar_330
+261: Bar_331
+262: Bar_332
+263: Bar_333
+264: Bar_334
+265: Bar_335
+266: Bar_336
+267: Bar_337
+268: Bar_338
+269: Bar_339
+270: Bar_34
+271: Bar_340
+272: Bar_341
+273: Bar_342
+274: Bar_343
+275: Bar_344
+276: Bar_345
+277: Bar_346
+278: Bar_347
+279: Bar_348
+280: Bar_349
+281: Bar_35
+282: Bar_350
+283: Bar_351
+284: Bar_352
+285: Bar_353
+286: Bar_354
+287: Bar_355
+288: Bar_356
+289: Bar_357
+290: Bar_358
+291: Bar_359
+292: Bar_36
+293: Bar_360
+294: Bar_361
+295: Bar_362
+296: Bar_363
+297: Bar_364
+298: Bar_365
+299: Bar_366
+300: Bar_367
+301: Bar_368
+302: Bar_369
+303: Bar_37
+304: Bar_370
+305: Bar_371
+306: Bar_372
+307: Bar_373
+308: Bar_374
+309: Bar_375
+310: Bar_376
+311: Bar_377
+312: Bar_378
+313: Bar_379
+314: Bar_38
+315: Bar_380
+316: Bar_381
+317: Bar_382
+318: Bar_383
+319: Bar_384
+320: Bar_385
+321: Bar_386
+322: Bar_387
+323: Bar_388
+324: Bar_389
+325: Bar_39
+326: Bar_390
+327: Bar_391
+328: Bar_392
+329: Bar_393
+330: Bar_394
+331: Bar_395
+332: Bar_396
+333: Bar_397
+334: Bar_398
+335: Bar_399
+336: Bar_4
+337: Bar_40
+338: Bar_400
+339: Bar_401
+340: Bar_402
+341: Bar_403
+342: Bar_404
+343: Bar_405
+344: Bar_406
+345: Bar_407
+346: Bar_408
+347: Bar_409
+348: Bar_41
+349: Bar_410
+350: Bar_411
+351: Bar_412
+352: Bar_413
+353: Bar_414
+354: Bar_415
+355: Bar_416
+356: Bar_417
+357: Bar_418
+358: Bar_419
+359: Bar_42
+360: Bar_420
+361: Bar_421
+362: Bar_422
+363: Bar_423
+364: Bar_424
+365: Bar_425
+366: Bar_426
+367: Bar_427
+368: Bar_428
+369: Bar_429
+370: Bar_43
+371: Bar_430
+372: Bar_431
+373: Bar_432
+374: Bar_433
+375: Bar_434
+376: Bar_435
+377: Bar_436
+378: Bar_437
+379: Bar_438
+380: Bar_439
+381: Bar_44
+382: Bar_440
+383: Bar_441
+384: Bar_442
+385: Bar_443
+386: Bar_444
+387: Bar_445
+388: Bar_446
+389: Bar_447
+390: Bar_448
+391: Bar_449
+392: Bar_45
+393: Bar_450
+394: Bar_451
+395: Bar_452
+396: Bar_453
+397: Bar_454
+398: Bar_455
+399: Bar_456
+400: Bar_457
+401: Bar_458
+402: Bar_459
+403: Bar_46
+404: Bar_460
+405: Bar_461
+406: Bar_462
+407: Bar_463
+408: Bar_464
+409: Bar_465
+410: Bar_466
+411: Bar_467
+412: Bar_468
+413: Bar_469
+414: Bar_47
+415: Bar_470
+416: Bar_471
+417: Bar_472
+418: Bar_473
+419: Bar_474
+420: Bar_475
+421: Bar_476
+422: Bar_477
+423: Bar_478
+424: Bar_479
+425: Bar_48
+426: Bar_480
+427: Bar_481
+428: Bar_482
+429: Bar_483
+430: Bar_484
+431: Bar_485
+432: Bar_486
+433: Bar_487
+434: Bar_488
+435: Bar_489
+436: Bar_49
+437: Bar_490
+438: Bar_491
+439: Bar_492
+440: Bar_493
+441: Bar_494
+442: Bar_495
+443: Bar_496
+444: Bar_497
+445: Bar_498
+446: Bar_499
+447: Bar_5
+448: Bar_50
+449: Bar_500
+450: Bar_501
+451: Bar_502
+452: Bar_503
+453: Bar_504
+454: Bar_505
+455: Bar_506
+456: Bar_507
+457: Bar_508
+458: Bar_509
+459: Bar_51
+460: Bar_510
+461: Bar_511
+462: Bar_52
+463: Bar_53
+464: Bar_54
+465: Bar_55
+466: Bar_56
+467: Bar_57
+468: Bar_58
+469: Bar_59
+470: Bar_6
+471: Bar_60
+472: Bar_61
+473: Bar_62
+474: Bar_63
+475: Bar_64
+476: Bar_65
+477: Bar_66
+478: Bar_67
+479: Bar_68
+480: Bar_69
+481: Bar_7
+482: Bar_70
+483: Bar_71
+484: Bar_72
+485: Bar_73
+486: Bar_74
+487: Bar_75
+488: Bar_76
+489: Bar_77
+490: Bar_78
+491: Bar_79
+492: Bar_8
+493: Bar_80
+494: Bar_81
+495: Bar_82
+496: Bar_83
+497: Bar_84
+498: Bar_85
+499: Bar_86
+500: Bar_87
+501: Bar_88
+502: Bar_89
+503: Bar_9
+504: Bar_90
+505: Bar_91
+506: Bar_92
+507: Bar_93
+508: Bar_94
+509: Bar_95
+510: Bar_96
+511: Bar_97
+512: Bar_98
+513: Bar_99
+514: Chord_A#:None
+515: Chord_A#:aug
+516: Chord_A#:dim
+517: Chord_A#:dom7
+518: Chord_A#:maj
+519: Chord_A#:maj7
+520: Chord_A#:min
+521: Chord_A#:min7
+522: Chord_A:None
+523: Chord_A:aug
+524: Chord_A:dim
+525: Chord_A:dom7
+526: Chord_A:maj
+527: Chord_A:maj7
+528: Chord_A:min
+529: Chord_A:min7
+530: Chord_B:None
+531: Chord_B:aug
+532: Chord_B:dim
+533: Chord_B:dom7
+534: Chord_B:maj
+535: Chord_B:maj7
+536: Chord_B:min
+537: Chord_B:min7
+538: Chord_C#:None
+539: Chord_C#:aug
+540: Chord_C#:dim
+541: Chord_C#:dom7
+542: Chord_C#:maj
+543: Chord_C#:maj7
+544: Chord_C#:min
+545: Chord_C#:min7
+546: Chord_C:None
+547: Chord_C:aug
+548: Chord_C:dim
+549: Chord_C:dom7
+550: Chord_C:maj
+551: Chord_C:maj7
+552: Chord_C:min
+553: Chord_C:min7
+554: Chord_D#:None
+555: Chord_D#:aug
+556: Chord_D#:dim
+557: Chord_D#:dom7
+558: Chord_D#:maj
+559: Chord_D#:maj7
+560: Chord_D#:min
+561: Chord_D#:min7
+562: Chord_D:None
+563: Chord_D:aug
+564: Chord_D:dim
+565: Chord_D:dom7
+566: Chord_D:maj
+567: Chord_D:maj7
+568: Chord_D:min
+569: Chord_D:min7
+570: Chord_E:None
+571: Chord_E:aug
+572: Chord_E:dim
+573: Chord_E:dom7
+574: Chord_E:maj
+575: Chord_E:maj7
+576: Chord_E:min
+577: Chord_E:min7
+578: Chord_F#:None
+579: Chord_F#:aug
+580: Chord_F#:dim
+581: Chord_F#:dom7
+582: Chord_F#:maj
+583: Chord_F#:maj7
+584: Chord_F#:min
+585: Chord_F#:min7
+586: Chord_F:None
+587: Chord_F:aug
+588: Chord_F:dim
+589: Chord_F:dom7
+590: Chord_F:maj
+591: Chord_F:maj7
+592: Chord_F:min
+593: Chord_F:min7
+594: Chord_G#:None
+595: Chord_G#:aug
+596: Chord_G#:dim
+597: Chord_G#:dom7
+598: Chord_G#:maj
+599: Chord_G#:maj7
+600: Chord_G#:min
+601: Chord_G#:min7
+602: Chord_G:None
+603: Chord_G:aug
+604: Chord_G:dim
+605: Chord_G:dom7
+606: Chord_G:maj
+607: Chord_G:maj7
+608: Chord_G:min
+609: Chord_G:min7
+610: Chord_N:N
+611: Duration_0
+612: Duration_1
+613: Duration_10
+614: Duration_11
+615: Duration_12
+616: Duration_13
+617: Duration_14
+618: Duration_15
+619: Duration_16
+620: Duration_17
+621: Duration_18
+622: Duration_19
+623: Duration_2
+624: Duration_20
+625: Duration_21
+626: Duration_22
+627: Duration_23
+628: Duration_24
+629: Duration_25
+630: Duration_26
+631: Duration_27
+632: Duration_28
+633: Duration_29
+634: Duration_3
+635: Duration_30
+636: Duration_31
+637: Duration_32
+638: Duration_33
+639: Duration_34
+640: Duration_35
+641: Duration_36
+642: Duration_37
+643: Duration_38
+644: Duration_39
+645: Duration_4
+646: Duration_40
+647: Duration_41
+648: Duration_42
+649: Duration_43
+650: Duration_44
+651: Duration_45
+652: Duration_46
+653: Duration_47
+654: Duration_48
+655: Duration_49
+656: Duration_5
+657: Duration_50
+658: Duration_51
+659: Duration_52
+660: Duration_53
+661: Duration_54
+662: Duration_55
+663: Duration_56
+664: Duration_57
+665: Duration_6
+666: Duration_7
+667: Duration_8
+668: Duration_9
+669: Instrument_Accordion
+670: Instrument_Acoustic Bass
+671: Instrument_Acoustic Grand Piano
+672: Instrument_Acoustic Guitar (nylon)
+673: Instrument_Acoustic Guitar (steel)
+674: Instrument_Agogo
+675: Instrument_Alto Sax
+676: Instrument_Applause
+677: Instrument_Bagpipe
+678: Instrument_Banjo
+679: Instrument_Baritone Sax
+680: Instrument_Bassoon
+681: Instrument_Bird Tweet
+682: Instrument_Blown bottle
+683: Instrument_Brass Section
+684: Instrument_Breath Noise
+685: Instrument_Bright Acoustic Piano
+686: Instrument_Celesta
+687: Instrument_Cello
+688: Instrument_Choir Aahs
+689: Instrument_Church Organ
+690: Instrument_Clarinet
+691: Instrument_Clavinet
+692: Instrument_Contrabass
+693: Instrument_Distortion Guitar
+694: Instrument_Drawbar Organ
+695: Instrument_Dulcimer
+696: Instrument_Electric Bass (finger)
+697: Instrument_Electric Bass (pick)
+698: Instrument_Electric Grand Piano
+699: Instrument_Electric Guitar (clean)
+700: Instrument_Electric Guitar (jazz)
+701: Instrument_Electric Guitar (muted)
+702: Instrument_Electric Piano 1
+703: Instrument_Electric Piano 2
+704: Instrument_English Horn
+705: Instrument_FX 1 (rain)
+706: Instrument_FX 2 (soundtrack)
+707: Instrument_FX 3 (crystal)
+708: Instrument_FX 4 (atmosphere)
+709: Instrument_FX 5 (brightness)
+710: Instrument_FX 6 (goblins)
+711: Instrument_FX 7 (echoes)
+712: Instrument_FX 8 (sci-fi)
+713: Instrument_Fiddle
+714: Instrument_Flute
+715: Instrument_French Horn
+716: Instrument_Fretless Bass
+717: Instrument_Glockenspiel
+718: Instrument_Guitar Fret Noise
+719: Instrument_Guitar Harmonics
+720: Instrument_Gunshot
+721: Instrument_Harmonica
+722: Instrument_Harpsichord
+723: Instrument_Helicopter
+724: Instrument_Honky-tonk Piano
+725: Instrument_Kalimba
+726: Instrument_Koto
+727: Instrument_Lead 1 (square)
+728: Instrument_Lead 2 (sawtooth)
+729: Instrument_Lead 3 (calliope)
+730: Instrument_Lead 4 chiff
+731: Instrument_Lead 5 (charang)
+732: Instrument_Lead 6 (voice)
+733: Instrument_Lead 7 (fifths)
+734: Instrument_Lead 8 (bass + lead)
+735: Instrument_Marimba
+736: Instrument_Melodic Tom
+737: Instrument_Music Box
+738: Instrument_Muted Trumpet
+739: Instrument_Oboe
+740: Instrument_Ocarina
+741: Instrument_Orchestra Hit
+742: Instrument_Orchestral Harp
+743: Instrument_Overdriven Guitar
+744: Instrument_Pad 1 (new age)
+745: Instrument_Pad 2 (warm)
+746: Instrument_Pad 3 (polysynth)
+747: Instrument_Pad 4 (choir)
+748: Instrument_Pad 5 (bowed)
+749: Instrument_Pad 6 (metallic)
+750: Instrument_Pad 7 (halo)
+751: Instrument_Pad 8 (sweep)
+752: Instrument_Pan Flute
+753: Instrument_Percussive Organ
+754: Instrument_Piccolo
+755: Instrument_Pizzicato Strings
+756: Instrument_Recorder
+757: Instrument_Reed Organ
+758: Instrument_Reverse Cymbal
+759: Instrument_Rock Organ
+760: Instrument_Seashore
+761: Instrument_Shakuhachi
+762: Instrument_Shamisen
+763: Instrument_Shanai
+764: Instrument_Sitar
+765: Instrument_Slap Bass 1
+766: Instrument_Slap Bass 2
+767: Instrument_Soprano Sax
+768: Instrument_Steel Drums
+769: Instrument_String Ensemble 1
+770: Instrument_String Ensemble 2
+771: Instrument_Synth Bass 1
+772: Instrument_Synth Bass 2
+773: Instrument_Synth Brass 1
+774: Instrument_Synth Brass 2
+775: Instrument_Synth Choir
+776: Instrument_Synth Drum
+777: Instrument_Synth Strings 1
+778: Instrument_Synth Strings 2
+779: Instrument_Taiko Drum
+780: Instrument_Tango Accordion
+781: Instrument_Telephone Ring
+782: Instrument_Tenor Sax
+783: Instrument_Timpani
+784: Instrument_Tinkle Bell
+785: Instrument_Tremolo Strings
+786: Instrument_Trombone
+787: Instrument_Trumpet
+788: Instrument_Tuba
+789: Instrument_Tubular Bells
+790: Instrument_Vibraphone
+791: Instrument_Viola
+792: Instrument_Violin
+793: Instrument_Voice Oohs
+794: Instrument_Whistle
+795: Instrument_Woodblock
+796: Instrument_Xylophone
+797: Instrument_drum
+798: Pitch_0
+799: Pitch_1
+800: Pitch_10
+801: Pitch_100
+802: Pitch_101
+803: Pitch_102
+804: Pitch_103
+805: Pitch_104
+806: Pitch_105
+807: Pitch_106
+808: Pitch_107
+809: Pitch_108
+810: Pitch_109
+811: Pitch_11
+812: Pitch_110
+813: Pitch_111
+814: Pitch_112
+815: Pitch_113
+816: Pitch_114
+817: Pitch_115
+818: Pitch_116
+819: Pitch_117
+820: Pitch_118
+821: Pitch_119
+822: Pitch_12
+823: Pitch_120
+824: Pitch_121
+825: Pitch_122
+826: Pitch_123
+827: Pitch_124
+828: Pitch_125
+829: Pitch_126
+830: Pitch_127
+831: Pitch_13
+832: Pitch_14
+833: Pitch_15
+834: Pitch_16
+835: Pitch_17
+836: Pitch_18
+837: Pitch_19
+838: Pitch_2
+839: Pitch_20
+840: Pitch_21
+841: Pitch_22
+842: Pitch_23
+843: Pitch_24
+844: Pitch_25
+845: Pitch_26
+846: Pitch_27
+847: Pitch_28
+848: Pitch_29
+849: Pitch_3
+850: Pitch_30
+851: Pitch_31
+852: Pitch_32
+853: Pitch_33
+854: Pitch_34
+855: Pitch_35
+856: Pitch_36
+857: Pitch_37
+858: Pitch_38
+859: Pitch_39
+860: Pitch_4
+861: Pitch_40
+862: Pitch_41
+863: Pitch_42
+864: Pitch_43
+865: Pitch_44
+866: Pitch_45
+867: Pitch_46
+868: Pitch_47
+869: Pitch_48
+870: Pitch_49
+871: Pitch_5
+872: Pitch_50
+873: Pitch_51
+874: Pitch_52
+875: Pitch_53
+876: Pitch_54
+877: Pitch_55
+878: Pitch_56
+879: Pitch_57
+880: Pitch_58
+881: Pitch_59
+882: Pitch_6
+883: Pitch_60
+884: Pitch_61
+885: Pitch_62
+886: Pitch_63
+887: Pitch_64
+888: Pitch_65
+889: Pitch_66
+890: Pitch_67
+891: Pitch_68
+892: Pitch_69
+893: Pitch_7
+894: Pitch_70
+895: Pitch_71
+896: Pitch_72
+897: Pitch_73
+898: Pitch_74
+899: Pitch_75
+900: Pitch_76
+901: Pitch_77
+902: Pitch_78
+903: Pitch_79
+904: Pitch_8
+905: Pitch_80
+906: Pitch_81
+907: Pitch_82
+908: Pitch_83
+909: Pitch_84
+910: Pitch_85
+911: Pitch_86
+912: Pitch_87
+913: Pitch_88
+914: Pitch_89
+915: Pitch_9
+916: Pitch_90
+917: Pitch_91
+918: Pitch_92
+919: Pitch_93
+920: Pitch_94
+921: Pitch_95
+922: Pitch_96
+923: Pitch_97
+924: Pitch_98
+925: Pitch_99
+926: Pitch_drum_0
+927: Pitch_drum_1
+928: Pitch_drum_10
+929: Pitch_drum_100
+930: Pitch_drum_101
+931: Pitch_drum_102
+932: Pitch_drum_103
+933: Pitch_drum_104
+934: Pitch_drum_105
+935: Pitch_drum_106
+936: Pitch_drum_107
+937: Pitch_drum_108
+938: Pitch_drum_109
+939: Pitch_drum_11
+940: Pitch_drum_110
+941: Pitch_drum_111
+942: Pitch_drum_112
+943: Pitch_drum_113
+944: Pitch_drum_114
+945: Pitch_drum_115
+946: Pitch_drum_116
+947: Pitch_drum_117
+948: Pitch_drum_118
+949: Pitch_drum_119
+950: Pitch_drum_12
+951: Pitch_drum_120
+952: Pitch_drum_121
+953: Pitch_drum_122
+954: Pitch_drum_123
+955: Pitch_drum_124
+956: Pitch_drum_125
+957: Pitch_drum_126
+958: Pitch_drum_127
+959: Pitch_drum_13
+960: Pitch_drum_14
+961: Pitch_drum_15
+962: Pitch_drum_16
+963: Pitch_drum_17
+964: Pitch_drum_18
+965: Pitch_drum_19
+966: Pitch_drum_2
+967: Pitch_drum_20
+968: Pitch_drum_21
+969: Pitch_drum_22
+970: Pitch_drum_23
+971: Pitch_drum_24
+972: Pitch_drum_25
+973: Pitch_drum_26
+974: Pitch_drum_27
+975: Pitch_drum_28
+976: Pitch_drum_29
+977: Pitch_drum_3
+978: Pitch_drum_30
+979: Pitch_drum_31
+980: Pitch_drum_32
+981: Pitch_drum_33
+982: Pitch_drum_34
+983: Pitch_drum_35
+984: Pitch_drum_36
+985: Pitch_drum_37
+986: Pitch_drum_38
+987: Pitch_drum_39
+988: Pitch_drum_4
+989: Pitch_drum_40
+990: Pitch_drum_41
+991: Pitch_drum_42
+992: Pitch_drum_43
+993: Pitch_drum_44
+994: Pitch_drum_45
+995: Pitch_drum_46
+996: Pitch_drum_47
+997: Pitch_drum_48
+998: Pitch_drum_49
+999: Pitch_drum_5
+1000: Pitch_drum_50
+1001: Pitch_drum_51
+1002: Pitch_drum_52
+1003: Pitch_drum_53
+1004: Pitch_drum_54
+1005: Pitch_drum_55
+1006: Pitch_drum_56
+1007: Pitch_drum_57
+1008: Pitch_drum_58
+1009: Pitch_drum_59
+1010: Pitch_drum_6
+1011: Pitch_drum_60
+1012: Pitch_drum_61
+1013: Pitch_drum_62
+1014: Pitch_drum_63
+1015: Pitch_drum_64
+1016: Pitch_drum_65
+1017: Pitch_drum_66
+1018: Pitch_drum_67
+1019: Pitch_drum_68
+1020: Pitch_drum_69
+1021: Pitch_drum_7
+1022: Pitch_drum_70
+1023: Pitch_drum_71
+1024: Pitch_drum_72
+1025: Pitch_drum_73
+1026: Pitch_drum_74
+1027: Pitch_drum_75
+1028: Pitch_drum_76
+1029: Pitch_drum_77
+1030: Pitch_drum_78
+1031: Pitch_drum_79
+1032: Pitch_drum_8
+1033: Pitch_drum_80
+1034: Pitch_drum_81
+1035: Pitch_drum_82
+1036: Pitch_drum_83
+1037: Pitch_drum_84
+1038: Pitch_drum_85
+1039: Pitch_drum_86
+1040: Pitch_drum_87
+1041: Pitch_drum_88
+1042: Pitch_drum_89
+1043: Pitch_drum_9
+1044: Pitch_drum_90
+1045: Pitch_drum_91
+1046: Pitch_drum_92
+1047: Pitch_drum_93
+1048: Pitch_drum_94
+1049: Pitch_drum_95
+1050: Pitch_drum_96
+1051: Pitch_drum_97
+1052: Pitch_drum_98
+1053: Pitch_drum_99
+1054: Position_0
+1055: Position_1
+1056: Position_10
+1057: Position_100
+1058: Position_101
+1059: Position_102
+1060: Position_103
+1061: Position_104
+1062: Position_105
+1063: Position_106
+1064: Position_107
+1065: Position_108
+1066: Position_109
+1067: Position_11
+1068: Position_110
+1069: Position_111
+1070: Position_112
+1071: Position_113
+1072: Position_114
+1073: Position_115
+1074: Position_116
+1075: Position_117
+1076: Position_118
+1077: Position_119
+1078: Position_12
+1079: Position_120
+1080: Position_121
+1081: Position_122
+1082: Position_123
+1083: Position_124
+1084: Position_125
+1085: Position_126
+1086: Position_127
+1087: Position_128
+1088: Position_129
+1089: Position_13
+1090: Position_130
+1091: Position_131
+1092: Position_132
+1093: Position_133
+1094: Position_134
+1095: Position_135
+1096: Position_136
+1097: Position_137
+1098: Position_138
+1099: Position_139
+1100: Position_14
+1101: Position_140
+1102: Position_141
+1103: Position_142
+1104: Position_143
+1105: Position_15
+1106: Position_16
+1107: Position_17
+1108: Position_18
+1109: Position_19
+1110: Position_2
+1111: Position_20
+1112: Position_21
+1113: Position_22
+1114: Position_23
+1115: Position_24
+1116: Position_25
+1117: Position_26
+1118: Position_27
+1119: Position_28
+1120: Position_29
+1121: Position_3
+1122: Position_30
+1123: Position_31
+1124: Position_32
+1125: Position_33
+1126: Position_34
+1127: Position_35
+1128: Position_36
+1129: Position_37
+1130: Position_38
+1131: Position_39
+1132: Position_4
+1133: Position_40
+1134: Position_41
+1135: Position_42
+1136: Position_43
+1137: Position_44
+1138: Position_45
+1139: Position_46
+1140: Position_47
+1141: Position_48
+1142: Position_49
+1143: Position_5
+1144: Position_50
+1145: Position_51
+1146: Position_52
+1147: Position_53
+1148: Position_54
+1149: Position_55
+1150: Position_56
+1151: Position_57
+1152: Position_58
+1153: Position_59
+1154: Position_6
+1155: Position_60
+1156: Position_61
+1157: Position_62
+1158: Position_63
+1159: Position_64
+1160: Position_65
+1161: Position_66
+1162: Position_67
+1163: Position_68
+1164: Position_69
+1165: Position_7
+1166: Position_70
+1167: Position_71
+1168: Position_72
+1169: Position_73
+1170: Position_74
+1171: Position_75
+1172: Position_76
+1173: Position_77
+1174: Position_78
+1175: Position_79
+1176: Position_8
+1177: Position_80
+1178: Position_81
+1179: Position_82
+1180: Position_83
+1181: Position_84
+1182: Position_85
+1183: Position_86
+1184: Position_87
+1185: Position_88
+1186: Position_89
+1187: Position_9
+1188: Position_90
+1189: Position_91
+1190: Position_92
+1191: Position_93
+1192: Position_94
+1193: Position_95
+1194: Position_96
+1195: Position_97
+1196: Position_98
+1197: Position_99
+1198: Tempo_0
+1199: Tempo_1
+1200: Tempo_10
+1201: Tempo_11
+1202: Tempo_12
+1203: Tempo_13
+1204: Tempo_14
+1205: Tempo_15
+1206: Tempo_16
+1207: Tempo_17
+1208: Tempo_18
+1209: Tempo_19
+1210: Tempo_2
+1211: Tempo_20
+1212: Tempo_21
+1213: Tempo_22
+1214: Tempo_23
+1215: Tempo_24
+1216: Tempo_25
+1217: Tempo_26
+1218: Tempo_27
+1219: Tempo_28
+1220: Tempo_29
+1221: Tempo_3
+1222: Tempo_30
+1223: Tempo_31
+1224: Tempo_32
+1225: Tempo_4
+1226: Tempo_5
+1227: Tempo_6
+1228: Tempo_7
+1229: Tempo_8
+1230: Tempo_9
+1231: Time Signature_1/16
+1232: Time Signature_1/2
+1233: Time Signature_1/4
+1234: Time Signature_1/8
+1235: Time Signature_10/16
+1236: Time Signature_10/4
+1237: Time Signature_10/8
+1238: Time Signature_11/16
+1239: Time Signature_11/4
+1240: Time Signature_11/8
+1241: Time Signature_12/16
+1242: Time Signature_12/4
+1243: Time Signature_12/8
+1244: Time Signature_13/16
+1245: Time Signature_13/8
+1246: Time Signature_14/16
+1247: Time Signature_14/8
+1248: Time Signature_15/16
+1249: Time Signature_15/8
+1250: Time Signature_16/16
+1251: Time Signature_16/8
+1252: Time Signature_17/16
+1253: Time Signature_17/8
+1254: Time Signature_18/16
+1255: Time Signature_18/8
+1256: Time Signature_19/16
+1257: Time Signature_19/8
+1258: Time Signature_2/16
+1259: Time Signature_2/2
+1260: Time Signature_2/4
+1261: Time Signature_2/8
+1262: Time Signature_20/16
+1263: Time Signature_20/8
+1264: Time Signature_21/16
+1265: Time Signature_21/8
+1266: Time Signature_22/16
+1267: Time Signature_22/8
+1268: Time Signature_23/16
+1269: Time Signature_23/8
+1270: Time Signature_24/16
+1271: Time Signature_24/8
+1272: Time Signature_25/16
+1273: Time Signature_26/16
+1274: Time Signature_27/16
+1275: Time Signature_28/16
+1276: Time Signature_29/16
+1277: Time Signature_3/16
+1278: Time Signature_3/2
+1279: Time Signature_3/4
+1280: Time Signature_3/8
+1281: Time Signature_30/16
+1282: Time Signature_31/16
+1283: Time Signature_32/16
+1284: Time Signature_33/16
+1285: Time Signature_34/16
+1286: Time Signature_35/16
+1287: Time Signature_36/16
+1288: Time Signature_37/16
+1289: Time Signature_38/16
+1290: Time Signature_39/16
+1291: Time Signature_4/16
+1292: Time Signature_4/2
+1293: Time Signature_4/4
+1294: Time Signature_4/8
+1295: Time Signature_40/16
+1296: Time Signature_41/16
+1297: Time Signature_42/16
+1298: Time Signature_43/16
+1299: Time Signature_44/16
+1300: Time Signature_45/16
+1301: Time Signature_46/16
+1302: Time Signature_47/16
+1303: Time Signature_48/16
+1304: Time Signature_5/16
+1305: Time Signature_5/2
+1306: Time Signature_5/4
+1307: Time Signature_5/8
+1308: Time Signature_6/16
+1309: Time Signature_6/2
+1310: Time Signature_6/4
+1311: Time Signature_6/8
+1312: Time Signature_7/16
+1313: Time Signature_7/4
+1314: Time Signature_7/8
+1315: Time Signature_8/16
+1316: Time Signature_8/4
+1317: Time Signature_8/8
+1318: Time Signature_9/16
+1319: Time Signature_9/4
+1320: Time Signature_9/8
+1321: Velocity_0
+1322: Velocity_1
+1323: Velocity_10
+1324: Velocity_11
+1325: Velocity_12
+1326: Velocity_13
+1327: Velocity_14
+1328: Velocity_15
+1329: Velocity_16
+1330: Velocity_17
+1331: Velocity_18
+1332: Velocity_19
+1333: Velocity_2
+1334: Velocity_20
+1335: Velocity_21
+1336: Velocity_22
+1337: Velocity_23
+1338: Velocity_24
+1339: Velocity_25
+1340: Velocity_26
+1341: Velocity_27
+1342: Velocity_28
+1343: Velocity_29
+1344: Velocity_3
+1345: Velocity_30
+1346: Velocity_31
+1347: Velocity_32
+1348: Velocity_4
+1349: Velocity_5
+1350: Velocity_6
+1351: Velocity_7
+1352: Velocity_8
+1353: Velocity_9
